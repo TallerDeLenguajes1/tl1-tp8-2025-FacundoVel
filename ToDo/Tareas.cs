@@ -6,6 +6,13 @@ namespace EspacioTarea
         private string _descripcion;
         private int _duracion;
 
+        public Tarea(int id, string desc, int dur)
+        {
+            _tareaID = id;
+            _descripcion = desc;
+            _duracion = dur;
+        }
+
         public int TareaID { get => _tareaID; set => _tareaID = value; }
         public string Descripcion { get => _descripcion; set => _descripcion = value; }
         public int Duracion { get => _duracion; 
@@ -15,5 +22,12 @@ namespace EspacioTarea
                     _duracion = value;
                     } 
                 }
+                else
+                {
+                    Console.WriteLine("el valor debe estar entre 10 y 100");
+                }
+        }
     }  
 }
+
+//
