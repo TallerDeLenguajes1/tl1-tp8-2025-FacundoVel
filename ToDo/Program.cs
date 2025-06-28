@@ -32,3 +32,13 @@ if(cantidadTareas > 0)
         }
     }
 }
+else
+{
+    Console.WriteLine("No se ingreso una cantidad valida de tareas.");
+}
+
+Console.WriteLine("\nTareas Pendientes: ");
+foreach (Tarea t in tareasPendientes)
+{
+    t.Mostrar();
+}
