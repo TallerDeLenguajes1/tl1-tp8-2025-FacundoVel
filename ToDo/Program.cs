@@ -1,20 +1,34 @@
-﻿using EspacioTarea
+﻿using EspacioTarea;
 
-int n = 0, id = 0, duracion = 0; 
+List<Tarea> tareasPendientes = new List<Tarea>();
 
-Console.WriteLine("Ingrese cantidad de Tareas a realizar: ");
-if((int.TryParse(Console.ReadLine(),out n)) && n > 0)
+int n = 0;
+int id = 1;
+
+Console.WriteLine("Ingrese cantidad de tareas a Realizar: ");
+string? input = Console.ReadLine();
+int.TryParse(input, out int cantidadTareas);
+
+if(cantidadTareas > 0)
 {
-    for (int i = 0; i < n; i++)
+    for(int i = 0; i < cantidadTareas; i++)
     {
-        int _tareaID = id++;
-        Console.WriteLine("Ingrese la descripcion de la tarea: ");
-        string _descripcion = Console.ReadLine();
-        Console.WriteLine("Ingrese la duracion de la tarea: ");
-        int _duracion = int.Parse(Console.Readline(), out duracion);
-        Tarea.add(_tareaID, _descripcion, _duracion);
+        Console.WriteLine($"\Tarea {i + 1}: ");
+        Console.WriteLine("Descripcion de la tarea: ");
+        string? descripcion = Console.ReadLine();
+
+        Console.WriteLine("Duracion (10-100): ");
+        string? duracionInput = Console.ReadLine();
+        int.TryParse(duracionInput, out int duracionNumero);
+
+        if(duracionNumero >=10 && duracionNumero <= 100)
+        {
+            Tarea nuevaTarea = new Tarea(id++, descripcion, duracion);
+            tareasPendientes.Add(nuevaTarea);
+        }
+        else
+        {
+            Console.WriteLine("Duracion invalida.");
+        }
     }
-}
-else{
-    Console.WriteLine("Ingrese un numero valido");
 }
