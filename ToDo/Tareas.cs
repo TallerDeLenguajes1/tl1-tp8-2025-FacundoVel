@@ -29,6 +29,11 @@ namespace EspacioTarea
                  }
             }
         }
+        
+        public void Mostrar()
+        {
+            Console.WriteLine($"ID: {TareaID} | Descripción: {Descripcion} | Duración: {Duracion}");
+        }
 
     }  
 }
