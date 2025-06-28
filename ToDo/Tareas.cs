@@ -19,7 +19,7 @@ namespace EspacioTarea
         {
             get => _duracion;
             set{
-                 if (value >= 10 && vakye <100)
+                 if (value >= 10 && value <=100)
                  {
                     _duracion = value;
                  }
@@ -29,7 +29,7 @@ namespace EspacioTarea
                  }
             }
         }
-        
+
         public void Mostrar()
         {
             Console.WriteLine($"ID: {TareaID} | Descripción: {Descripcion} | Duración: {Duracion}");

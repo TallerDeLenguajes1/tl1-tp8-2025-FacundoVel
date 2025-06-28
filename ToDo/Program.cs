@@ -2,10 +2,11 @@
 
 List<Tarea> tareasPendientes = new List<Tarea>();
 
-int n = 0;
-int id = 1;
 
-Console.WriteLine("Ingrese cantidad de tareas a Realizar: ");
+int id = 1;
+Random random = new Random();
+
+Console.WriteLine("Ingrese cantidad de tareas a generar: ");
 string? input = Console.ReadLine();
 int.TryParse(input, out int cantidadTareas);
 
@@ -13,23 +14,11 @@ if(cantidadTareas > 0)
 {
     for(int i = 0; i < cantidadTareas; i++)
     {
-        Console.WriteLine($"\Tarea {i + 1}: ");
-        Console.WriteLine("Descripcion de la tarea: ");
-        string? descripcion = Console.ReadLine();
-
-        Console.WriteLine("Duracion (10-100): ");
-        string? duracionInput = Console.ReadLine();
-        int.TryParse(duracionInput, out int duracionNumero);
-
-        if(duracionNumero >=10 && duracionNumero <= 100)
-        {
-            Tarea nuevaTarea = new Tarea(id++, descripcion, duracion);
-            tareasPendientes.Add(nuevaTarea);
-        }
-        else
-        {
-            Console.WriteLine("Duracion invalida.");
-        }
+        Console.WriteLine($"\nTarea {i + 1}: ");
+        string descripcion = $"descripcion de tarea al azar numero {i + 1}";
+        int duracion = random.Next(10, 101);
+        Tarea nuevaTarea = new Tarea(i+1, descripcion, duracion);
+        tareasPendientes.Add(nuevaTarea);
     }
 }
 else
@@ -42,3 +31,4 @@ foreach (Tarea t in tareasPendientes)
 {
     t.Mostrar();
 }
+
