@@ -10,23 +10,26 @@ namespace EspacioTarea
         {
             _tareaID = id;
             _descripcion = desc;
-            _duracion = dur;
+            Duracion = dur;
         }
 
         public int TareaID { get => _tareaID; set => _tareaID = value; }
         public string Descripcion { get => _descripcion; set => _descripcion = value; }
-        public int Duracion { get => _duracion; 
-            set {
-                if(value >=10 && value <= 100)
-                {
+        public int Duracion
+        {
+            get => _duracion;
+            set{
+                 if (value >= 10 && vakye <100)
+                 {
                     _duracion = value;
-                    } 
-                }
-                else
-                {
-                    Console.WriteLine("el valor debe estar entre 10 y 100");
-                }
+                 }
+                 else
+                 {
+                    Console.WriteLine("La duración debe estar entre 10 y 100 minutos.");
+                 }
+            }
         }
+
     }  
 }
 
